@@ -7,8 +7,8 @@ import javax.inject.Inject
 class UserDataSourceImpl @Inject constructor(
     private val userApi: UserApi
 ) : UserDataSource, BaseRepo() {
-    override suspend fun getUsers() = safeApiCall {
-        userApi.getUsers().results.map {
+    override suspend fun getUsers(count : Int) = safeApiCall {
+        userApi.getUsers(count).results.map {
             it.toUser()
 
         }

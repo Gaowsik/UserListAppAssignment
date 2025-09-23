@@ -5,5 +5,5 @@ import com.example.assignmentuserlist.data.model.UserResponse
 import com.example.assignmentuserlist.domain.User
 
 interface UserDataSource {
-    suspend fun getUsers(): APIResource<List<User>>
+    suspend fun getUsers(count : Int): APIResource<List<User>>
 }

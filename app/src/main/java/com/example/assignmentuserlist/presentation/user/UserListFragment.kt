@@ -13,6 +13,7 @@ import com.example.assignmentuserlist.databinding.FragmentUserListBinding
 import com.example.assignmentuserlist.domain.User
 import com.example.assignmentuserlist.presentation.core.BaseFragment
 import com.example.assignmentuserlist.presentation.extention.collectLatestLifeCycleFlow
+import com.example.assignmentuserlist.presentation.utils.Constants.DEFAULT_USER_COUNT
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -102,7 +103,7 @@ class UserListFragment : BaseFragment() {
 
 
     private fun getUsers() {
-        userViewModel.getAllUsers()
+        userViewModel.getAllUsers(DEFAULT_USER_COUNT)
     }
 
 

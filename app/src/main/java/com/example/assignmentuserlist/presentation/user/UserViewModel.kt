@@ -3,9 +3,9 @@ package com.example.assignmentuserlist.presentation.user
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.assignmentuserlist.data.APIResource
+import com.example.assignmentuserlist.data.network.parseErrors
 import com.example.assignmentuserlist.domain.User
 import com.example.assignmentuserlist.domain.UserRepository
-import com.example.assignmentuserlist.data.network.parseErrors
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -35,10 +35,10 @@ class UserViewModel @Inject constructor(
         _userListState.map { list -> list.find { it.userId == userId } }
 
 
-    fun getAllUsers() {
+    fun getAllUsers(count: Int) {
         viewModelScope.launch {
             setLoading(true)
-            val response = userRepository.getUsers()
+            val response = userRepository.getUsers(count)
             when (response) {
                 is APIResource.Success -> {
                     setLoading(false)

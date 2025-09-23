@@ -7,5 +7,5 @@ import javax.inject.Inject
 class UserRepositoryImpl @Inject constructor(
     private val userDataSource: UserDataSource
 ) : UserRepository {
-    override suspend fun getUsers() = userDataSource.getUsers()
+    override suspend fun getUsers(count : Int) = userDataSource.getUsers(count)
 }

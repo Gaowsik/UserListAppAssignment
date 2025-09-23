@@ -3,7 +3,11 @@ package com.example.assignmentuserlist.di
 import com.example.assignmentuserlist.BuildConfig
 import com.example.assignmentuserlist.data.network.NetworkConfig.TIMEOUT
 import com.example.assignmentuserlist.data.network.createAppApiClient
+import com.example.assignmentuserlist.data.repository.UserRepositoryImpl
 import com.example.assignmentuserlist.data.source.UserApi
+import com.example.assignmentuserlist.data.source.UserDataSource
+import com.example.assignmentuserlist.data.source.UserDataSourceImpl
+import com.example.assignmentuserlist.domain.UserRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,5 +44,34 @@ object NetworkModule {
         return wMSRoleApiClient.create(UserApi::class.java)
     }
 
+
+    @Module
+    @InstallIn(SingletonComponent::class)
+    object RepositoryModule {
+
+        @Singleton
+        @Provides
+        fun provideUserRepository(
+            userDataSource: UserDataSource
+        ): UserRepository {
+            return UserRepositoryImpl(
+                userDataSource
+            )
+        }
+    }
+
+    @Module
+    @InstallIn(SingletonComponent::class)
+    object DataSourceModule {
+
+        @Singleton
+        @Provides
+        fun provideUserDataSource(
+            api: UserApi
+        ): UserDataSource {
+            return UserDataSourceImpl(api)
+        }
+
+    }
 
 }

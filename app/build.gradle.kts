@@ -21,6 +21,12 @@ android {
     }
 
     buildTypes {
+
+        all {
+
+            buildConfigField("String", "BASE_API_URL", "\"https://randomuser.me/\"")
+
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -29,6 +35,16 @@ android {
             )
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
+
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -36,6 +52,8 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+
 }
 
 dependencies {
@@ -61,7 +79,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
-    implementation (libs.glide)
+    implementation(libs.glide)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

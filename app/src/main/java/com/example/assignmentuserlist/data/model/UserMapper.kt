@@ -4,6 +4,7 @@ import com.example.assignmentuserlist.domain.User
 
 fun ApiUser.toUser(): User {
     return User(
+        userId = login.uuid,
         fullName = name.getFullName(),
         email = email,
         phone = phone,

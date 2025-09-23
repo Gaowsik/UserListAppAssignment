@@ -6,5 +6,6 @@ data class ApiUser(
     @SerializedName("name") val name: Name,
     @SerializedName("email") val email: String,
     @SerializedName("phone") val phone: String,
-    @SerializedName("picture") val picture: Picture
+    @SerializedName("picture") val picture: Picture,
+    @SerializedName("login") val login: Login
 )

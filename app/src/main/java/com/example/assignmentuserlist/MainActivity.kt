@@ -1,11 +1,10 @@
-package com.example.assignmentuserlist.presentation.list
+package com.example.assignmentuserlist
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.assignmentuserlist.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

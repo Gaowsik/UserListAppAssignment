@@ -1,4 +1,4 @@
-package com.example.assignmentuserlist.utils
+package com.example.assignmentuserlist.data.network
 
 import com.example.assignmentuserlist.data.APIResource
 import com.google.gson.Gson

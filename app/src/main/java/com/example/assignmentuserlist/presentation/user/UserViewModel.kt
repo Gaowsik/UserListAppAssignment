@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.assignmentuserlist.data.APIResource
 import com.example.assignmentuserlist.domain.User
 import com.example.assignmentuserlist.domain.UserRepository
-import com.example.assignmentuserlist.utils.parseErrors
+import com.example.assignmentuserlist.data.network.parseErrors
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow

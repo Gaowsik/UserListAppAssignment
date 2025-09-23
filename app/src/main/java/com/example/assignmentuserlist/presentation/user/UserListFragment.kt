@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.assignmentuserlist.R
 import com.example.assignmentuserlist.databinding.FragmentUserListBinding
+import com.example.assignmentuserlist.presentation.core.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-
-class UserListFragment : Fragment() {
+@AndroidEntryPoint
+class UserListFragment : BaseFragment() {
 
     private lateinit var binding: FragmentUserListBinding
 
@@ -20,6 +22,11 @@ class UserListFragment : Fragment() {
         binding = FragmentUserListBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
 
 
 }

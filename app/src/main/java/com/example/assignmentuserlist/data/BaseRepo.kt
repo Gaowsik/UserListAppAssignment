@@ -12,12 +12,10 @@ abstract class BaseRepo() {
         return withContext(Dispatchers.IO) {
             try {
                 val response = apiCall.invoke()
-                Log.d("BaseRepo", "safeApiCall: $response")
                 APIResource.Success(response)
             } catch (throwable: Throwable) {
                 when (throwable) {
                     is HttpException -> {
-                        Log.e("BaseRepo", "safeApiCall: ${throwable.message}")
                         APIResource.Error(
                             false,
                             throwable.code(),
@@ -26,7 +24,6 @@ abstract class BaseRepo() {
                     }
 
                     else -> {
-                        Log.e("BaseRepo", "safeApiCall: ${throwable.message}")
                         APIResource.Error(true, null, null)
                     }
                 }
